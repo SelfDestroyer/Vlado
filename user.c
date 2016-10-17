@@ -24,11 +24,18 @@ static void __PPS_Init(void);
 static void __SPI_Init(void);
 static void __Timer5_Init(void);
 
-void inline SPI_SendByte(uint8_t byte);
 
+
+void inline SPI_SendByte(uint8_t byte);
 void Display_Clear(void);
 void Display_PrintInteger(uint16_t num);
 static uint8_t __Display_digit_to_mem(uint8_t digit);
+
+
+display_opts_t display = {
+    Display_Clear,
+    Display_PrintInteger
+};
 
 static inline void __PPS_Unlock(void)
 {
@@ -60,6 +67,8 @@ void InitApp(void)
     /* Enable interrupts */
     PIR5bits.TMR5IF = 0;
     PIE5bits.TMR5IE = 1;
+    
+    
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
     
@@ -73,6 +82,10 @@ static void __GPIO_Init(void)
     TRISCbits.TRISC2 = 0;
     
     LATCbits.LATC1 = 1;
+    
+    /* Configure buttons */
+    BUTTON1_TRIS = 1;
+    BUTTON2_TRIS = 1;
 }
 static void __PPS_Init(void)
 {

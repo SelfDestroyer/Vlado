@@ -24,12 +24,13 @@ video_buffer_t video_buffer = {
     1
 };
 
+
+
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
 void main(void)
 {
-    uint16_t i = 0;
     /* Configure the oscillator for the device */
     ConfigureOscillator();
 
@@ -39,9 +40,7 @@ void main(void)
     
     while(1)
     {
-        
-        Display_PrintInteger(i++);
-        __delay_ms(1);
+        display.clear();
     }
 
 }

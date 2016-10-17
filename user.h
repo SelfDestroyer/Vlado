@@ -15,6 +15,11 @@
 #define DISPLAY_SECTION_F   (~(0x20))
 #define DISPLAY_SECTION_G   (~(0x40))
 
+
+#define BUTTON1_TRIS        (TRISAbits.TRISA4)
+#define BUTTON1             (PORTAbits.PORTA4)
+#define BUTTON2_TRIS        (TRISAbits.TRISA5)
+#define BUTTON2             (PORTAbits.PORTA5)
 /******************************************************************************/
 /* User Function Prototypes                                                   */
 /******************************************************************************/
@@ -25,12 +30,13 @@ typedef struct {
     uint8_t digit;
 }video_buffer_t;
 
+typedef struct {
+    void (*clear)(void);
+    void (*integer)(uint16_t num);
+}display_opts_t;
 
 extern video_buffer_t video_buffer;
+extern display_opts_t display;
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
-
 void inline SPI_SendByte(uint8_t byte);
-
-void Display_Clear(void);
-void Display_PrintInteger(uint16_t num);
