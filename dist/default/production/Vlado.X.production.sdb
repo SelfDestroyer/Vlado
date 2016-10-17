@@ -1,0 +1,302 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1615 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"29 C:\Users\Stefan\MPLABXProjects\Vlado.X\interrupts.c
+[v _isr isr `II(v  1 e 0 0 ]
+"39
+[v ___unhandled_isr __unhandled_isr `T(v  1 s 0 __unhandled_isr ]
+"50
+[v ___Timer5_isr __Timer5_isr `T(v  1 s 0 __Timer5_isr ]
+"30 C:\Users\Stefan\MPLABXProjects\Vlado.X\main.c
+[v _main main `(v  1 e 0 0 ]
+"18 C:\Users\Stefan\MPLABXProjects\Vlado.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 0 0 ]
+"33 C:\Users\Stefan\MPLABXProjects\Vlado.X\user.c
+[v ___PPS_Unlock __PPS_Unlock `T(v  1 s 0 __PPS_Unlock ]
+"40
+[v ___PPS_Lock __PPS_Lock `T(v  1 s 0 __PPS_Lock ]
+"47
+[v _InitApp InitApp `(v  1 e 0 0 ]
+"68
+[v ___GPIO_Init __GPIO_Init `(v  1 s 0 __GPIO_Init ]
+"77
+[v ___PPS_Init __PPS_Init `(v  1 s 0 __PPS_Init ]
+"87
+[v ___SPI_Init __SPI_Init `(v  1 s 0 __SPI_Init ]
+"94
+[v _SPI_SendByte SPI_SendByte `T(v  1 e 0 0 ]
+"102
+[v ___Timer5_Init __Timer5_Init `(v  1 s 0 __Timer5_Init ]
+"110
+[v ___Display_digit_to_mem __Display_digit_to_mem `(uc  1 s 1 __Display_digit_to_mem ]
+"178
+[v _Display_Clear Display_Clear `(v  1 e 0 0 ]
+"185
+[v _Display_PrintInteger Display_PrintInteger `(v  1 e 0 0 ]
+[s S256 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"360 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f1615.h
+[s S265 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S270 . 1 `S256 1 . 1 0 `S265 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES270  1 e 1 @11 ]
+[s S19 . 1 `uc 1 PID1DIF 1 0 :1:0 
+`uc 1 PID1EIF 1 0 :1:1 
+`uc 1 AT1IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TMR5IF 1 0 :1:4 
+`uc 1 TMR5GIF 1 0 :1:5 
+`uc 1 TMR3IF 1 0 :1:6 
+`uc 1 TMR3GIF 1 0 :1:7 
+]
+"756
+[u S28 . 1 `S19 1 . 1 0 ]
+[v _PIR5bits PIR5bits `VES28  1 e 1 @20 ]
+[s S288 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+]
+"1593
+[u S295 . 1 `S288 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES295  1 e 1 @142 ]
+[s S235 . 1 `uc 1 PID1DIE 1 0 :1:0 
+`uc 1 PID1EIE 1 0 :1:1 
+`uc 1 AT1IE 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TMR5IE 1 0 :1:4 
+`uc 1 TMR5GIE 1 0 :1:5 
+`uc 1 TMR3IE 1 0 :1:6 
+`uc 1 TMR3GIE 1 0 :1:7 
+]
+"1871
+[u S244 . 1 `S235 1 . 1 0 ]
+[v _PIE5bits PIE5bits `VES244  1 e 1 @148 ]
+[s S138 . 1 `uc 1 SCS 1 0 :2:0 
+`uc 1 . 1 0 :1:2 
+`uc 1 IRCF 1 0 :4:3 
+`uc 1 SPLLEN 1 0 :1:7 
+]
+"2132
+[s S143 . 1 `uc 1 SCS0 1 0 :1:0 
+`uc 1 SCS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 IRCF0 1 0 :1:3 
+`uc 1 IRCF1 1 0 :1:4 
+`uc 1 IRCF2 1 0 :1:5 
+`uc 1 IRCF3 1 0 :1:6 
+]
+[u S151 . 1 `S138 1 . 1 0 `S143 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES151  1 e 1 @153 ]
+[s S168 . 1 `uc 1 HFIOFS 1 0 :1:0 
+`uc 1 LFIOFR 1 0 :1:1 
+`uc 1 MFIOFR 1 0 :1:2 
+`uc 1 HFIOFL 1 0 :1:3 
+`uc 1 HFIOFR 1 0 :1:4 
+`uc 1 OSTS 1 0 :1:5 
+`uc 1 PLLR 1 0 :1:6 
+]
+"2197
+[u S176 . 1 `S168 1 . 1 0 ]
+[v _OSCSTATbits OSCSTATbits `VES176  1 e 1 @154 ]
+[s S54 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+]
+"2535
+[u S61 . 1 `S54 1 . 1 0 ]
+[v _LATCbits LATCbits `VES61  1 e 1 @270 ]
+"4350
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
+"4598
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"5104
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+[s S347 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"5126
+[u S356 . 1 `S347 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES356  1 e 1 @532 ]
+"5225
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+[s S320 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"5258
+[s S326 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S331 . 1 `S320 1 . 1 0 `S326 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES331  1 e 1 @533 ]
+"8388
+[v _TMR5L TMR5L `VEuc  1 e 1 @1178 ]
+"8407
+[v _TMR5H TMR5H `VEuc  1 e 1 @1179 ]
+"8426
+[v _T5CON T5CON `VEuc  1 e 1 @1180 ]
+"20252
+[v _PPSLOCK PPSLOCK `VEuc  1 e 1 @3599 ]
+[s S200 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+]
+"20262
+[u S202 . 1 `S200 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES202  1 e 1 @3599 ]
+"21819
+[v _RC0PPS RC0PPS `VEuc  1 e 1 @3744 ]
+"21905
+[v _RC2PPS RC2PPS `VEuc  1 e 1 @3746 ]
+[s S77 . 9 `[4]uc 1 buffer1 4 0 `[4]uc 1 buffer2 4 4 `uc 1 digit 1 8 ]
+"21 C:\Users\Stefan\MPLABXProjects\Vlado.X\main.c
+[v _video_buffer video_buffer `S77  1 e 9 0 ]
+"30
+[v _main main `(v  1 e 0 0 ]
+{
+"32
+[v main@i i `ui  1 a 2 6 ]
+"47
+} 0
+"47 C:\Users\Stefan\MPLABXProjects\Vlado.X\user.c
+[v _InitApp InitApp `(v  1 e 0 0 ]
+{
+"66
+} 0
+"102
+[v ___Timer5_Init __Timer5_Init `(v  1 s 0 __Timer5_Init ]
+{
+"107
+} 0
+"87
+[v ___SPI_Init __SPI_Init `(v  1 s 0 __SPI_Init ]
+{
+"92
+} 0
+"77
+[v ___PPS_Init __PPS_Init `(v  1 s 0 __PPS_Init ]
+{
+"86
+} 0
+"33
+[v ___PPS_Unlock __PPS_Unlock `T(v  1 s 0 __PPS_Unlock ]
+{
+"38
+} 0
+"40
+[v ___PPS_Lock __PPS_Lock `T(v  1 s 0 __PPS_Lock ]
+{
+"45
+} 0
+"68
+[v ___GPIO_Init __GPIO_Init `(v  1 s 0 __GPIO_Init ]
+{
+"76
+} 0
+"185
+[v _Display_PrintInteger Display_PrintInteger `(v  1 e 0 0 ]
+{
+"187
+[v Display_PrintInteger@p p `*.4uc  1 a 1 3 ]
+"185
+[v Display_PrintInteger@num num `ui  1 p 2 0 ]
+"197
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 8 ]
+"6
+[v ___lwmod@divisor divisor `ui  1 p 2 3 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 5 ]
+"26
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 8 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 10 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
+"31
+} 0
+"110 C:\Users\Stefan\MPLABXProjects\Vlado.X\user.c
+[v ___Display_digit_to_mem __Display_digit_to_mem `(uc  1 s 1 __Display_digit_to_mem ]
+{
+[v ___Display_digit_to_mem@digit digit `uc  1 a 1 wreg ]
+[v ___Display_digit_to_mem@digit digit `uc  1 a 1 wreg ]
+[v ___Display_digit_to_mem@digit digit `uc  1 a 1 3 ]
+"176
+} 0
+"178
+[v _Display_Clear Display_Clear `(v  1 e 0 0 ]
+{
+"184
+} 0
+"18 C:\Users\Stefan\MPLABXProjects\Vlado.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 0 0 ]
+{
+"24
+} 0
+"29 C:\Users\Stefan\MPLABXProjects\Vlado.X\interrupts.c
+[v _isr isr `II(v  1 e 0 0 ]
+{
+"37
+} 0
+"39
+[v ___unhandled_isr __unhandled_isr `T(v  1 s 0 __unhandled_isr ]
+{
+"44
+} 0
+"50
+[v ___Timer5_isr __Timer5_isr `T(v  1 s 0 __Timer5_isr ]
+{
+"66
+} 0
+"94 C:\Users\Stefan\MPLABXProjects\Vlado.X\user.c
+[v _SPI_SendByte SPI_SendByte `T(v  1 e 0 0 ]
+{
+[v SPI_SendByte@byte byte `uc  1 a 1 wreg ]
+[v SPI_SendByte@byte byte `uc  1 a 1 wreg ]
+"96
+[v SPI_SendByte@byte byte `uc  1 a 1 0 ]
+"100
+} 0
