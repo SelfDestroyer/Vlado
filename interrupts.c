@@ -11,6 +11,7 @@
 #include <stdint.h>         /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
 #include <string.h>
+#include <pic16f1615.h>
 
 #include "user.h"
 
@@ -25,11 +26,14 @@
 
 static inline void __unhandled_isr(void);
 static inline void __Timer5_isr(void);
+static inline void __IOC_isr(void);
 
 void interrupt isr(void)
 {
     if(PIR5bits.TMR5IF) {
         __Timer5_isr();
+    } else if(IOCAF){
+        __IOC_isr();
     } else {
         __unhandled_isr();
     }
@@ -57,11 +61,38 @@ static inline void __Timer5_isr(void)
     video_buffer.digit = (uint8_t)((video_buffer.digit + 1) & 0x0F);
     
     /* If digit roll-over then enable transfer from buffer2 to buffer1 */
-    memcpy(video_buffer.buffer1, video_buffer.buffer2, 4);
+    if(!video_buffer.digit)
+        memcpy(video_buffer.buffer1, video_buffer.buffer2, 4);
     
     TMR5H = 0xEF;
     TMR5L += 0x78;
     PIR5bits.TMR5IF = 0;
+    
+}
+
+/**
+ * __IOC_isr
+ * @brief - Handle buttons interrupts
+ */
+static inline void __IOC_isr(void)
+{
+    if(IOCAFbits.IOCAF4) {
+        gd.buttons.btn1 = !BUTTON1;
+        IOCAFbits.IOCAF4 = 0;
+    }
+    
+    if(IOCAFbits.IOCAF5) {
+        gd.buttons.btn2 = !BUTTON2;
+        IOCAFbits.IOCAF5 = 0;
+    }
+    
+    if(IOCAFbits.IOCAF0) {
+        IOCAFbits.IOCAF0 = 0;
+    }
+    
+    if(IOCAFbits.IOCAF1) {
+        IOCAFbits.IOCAF1 = 0;
+    }
     
 }
 #endif

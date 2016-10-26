@@ -9,7 +9,8 @@
 #endif
 
 #include <stdint.h>         /* For uint8_t definition */
-#include <stdbool.h>        /* For true/false definition */
+#include <stdbool.h>
+#include <pic16f1615.h>        /* For true/false definition */
 
 #include "user.h"
 #include "system.h"
@@ -22,6 +23,7 @@
 static void __GPIO_Init(void);
 static void __PPS_Init(void);
 static void __SPI_Init(void);
+static void __PWM_Init(void);
 static void __Timer5_Init(void);
 
 
@@ -63,11 +65,15 @@ void InitApp(void)
     /* Initialize peripherals */
     __SPI_Init();
     __Timer5_Init();
+    __PWM_Init();
     
     /* Enable interrupts */
     PIR5bits.TMR5IF = 0;
     PIE5bits.TMR5IE = 1;
     
+    IOCAF = 0x00;
+    IOCAN |= 0x33;
+    IOCAP |= 0x33;
     
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
@@ -84,15 +90,26 @@ static void __GPIO_Init(void)
     LATCbits.LATC1 = 1;
     
     /* Configure buttons */
-    BUTTON1_TRIS = 1;
-    BUTTON2_TRIS = 1;
+    TRISA |= 0x30;
+    
+    /* Configure count inputs */
+    TRISA |= 0x03;
+    
+    /* Configure PWM outputs*/
+    TRISC &= ~(0x18);
 }
+
+/**
+ * 
+ */
 static void __PPS_Init(void)
 {
     __PPS_Unlock();
     
     RC0PPS = 0x10;      // SCK
     RC2PPS = 0x11;      // SDO
+    RC3PPS = 0x0E;      // PWM3_out
+    RC4PPS = 0x0F;      // PWM4_out
     
     __PPS_Lock();
     
@@ -115,7 +132,32 @@ void inline SPI_SendByte(uint8_t byte)
 static void __Timer5_Init(void)
 {
     T5CON = 0x01;
+}
+
+static void __PWM_Init(void)
+{
+    PWM3CON = 0;
+    PWM4CON = 0;
     
+    PR2 = 0xFF;
+    
+    PWM3DCH = 0;
+    PWM3DCL &= ~(0xC0);
+    
+    PWM4DCH = 0;
+    PWM4DCL &= ~(0xC0);
+    
+    T2CONbits.CKPS = 0x07;  // 1:64
+    T2CONbits.ON = 1;       // Enable
+    
+    PWM3CONbits.EN = 1;
+    PWM4CONbits.EN = 1;
+    
+#ifdef __SIM__
+    PWM3DCH = 0x50;
+    PWM3CONbits.OUT = 1;
+    PWM4CONbits.OUT = 1;
+#endif
     
 }
 

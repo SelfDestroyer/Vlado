@@ -20,5 +20,7 @@ void ConfigureOscillator(void)
     OSCCONbits.SCS = 0;
     OSCCONbits.IRCF = 0xF;      /* 16MHz internal */
     
+#ifndef __SIM__
     while(!OSCSTATbits.HFIOFS);
+#endif
 }

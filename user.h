@@ -16,10 +16,11 @@
 #define DISPLAY_SECTION_G   (~(0x40))
 
 
-#define BUTTON1_TRIS        (TRISAbits.TRISA4)
-#define BUTTON1             (PORTAbits.PORTA4)
-#define BUTTON2_TRIS        (TRISAbits.TRISA5)
-#define BUTTON2             (PORTAbits.PORTA5)
+#define BUTTON1             (PORTAbits.RA4)
+#define BUTTON2             (PORTAbits.RA5)
+
+#define CNT1                (PORTAbits.RA0)
+#define CNT2                (PORTAbits.RA1)
 /******************************************************************************/
 /* User Function Prototypes                                                   */
 /******************************************************************************/
@@ -35,8 +36,22 @@ typedef struct {
     void (*integer)(uint16_t num);
 }display_opts_t;
 
+typedef union {
+    uint8_t buttons;
+    struct {
+        unsigned btn1   : 1;
+        unsigned btn2   : 1;
+    };    
+}buttons_t;
+
+typedef struct {
+    buttons_t buttons;
+    uint16_t position;
+}gd_t;
+
 extern video_buffer_t video_buffer;
 extern display_opts_t display;
+extern gd_t gd;
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 void inline SPI_SendByte(uint8_t byte);

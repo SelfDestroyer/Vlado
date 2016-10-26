@@ -1,1 +1,4 @@
 /dist/default/
+/build/default/
+/build/simulator/
+/dist/simulator/
