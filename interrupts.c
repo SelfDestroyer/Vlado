@@ -32,7 +32,7 @@ void interrupt isr(void)
 {
     if(PIR5bits.TMR5IF) {
         __Timer5_isr();
-    } else if(IOCAF){
+    } else if(INTCONbits.IOCIF){
         __IOC_isr();
     } else {
         __unhandled_isr();
@@ -93,6 +93,8 @@ static inline void __IOC_isr(void)
     if(IOCAFbits.IOCAF1) {
         IOCAFbits.IOCAF1 = 0;
     }
+    
+    INTCONbits.IOCIF = 0;
     
 }
 #endif

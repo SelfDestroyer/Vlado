@@ -75,6 +75,8 @@ void InitApp(void)
     IOCAN |= 0x33;
     IOCAP |= 0x33;
     
+    INTCONbits.IOCIF = 0;
+    INTCONbits.IOCIE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
     
@@ -82,6 +84,9 @@ void InitApp(void)
 
 static void __GPIO_Init(void)
 {
+    ANSELA = 0x00;
+    ANSELC = 0x00;
+    
     /* Configure SS */
     TRISCbits.TRISC0 = 0;
     TRISCbits.TRISC1 = 0;

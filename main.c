@@ -56,6 +56,7 @@ void main(void)
                 break;
         }
         display.integer(gd.position);
+        __delay_ms(50);
     }
 
 }
