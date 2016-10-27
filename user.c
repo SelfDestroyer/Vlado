@@ -158,10 +158,11 @@ static void __PWM_Init(void)
     PWM3CONbits.EN = 1;
     PWM4CONbits.EN = 1;
     
-#ifdef __SIM__
-    PWM3DCH = 0x50;
     PWM3CONbits.OUT = 1;
     PWM4CONbits.OUT = 1;
+    
+#ifdef __SIM__
+    PWM3DCH = 0x50;
 #endif
     
 }

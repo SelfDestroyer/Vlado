@@ -45,8 +45,14 @@ typedef union {
 }buttons_t;
 
 typedef struct {
+    uint16_t position;
+    volatile uint8_t *speed;
+}motor_t;
+
+typedef struct {
     buttons_t buttons;
     uint16_t position;
+    motor_t motors[2];
 }gd_t;
 
 extern video_buffer_t video_buffer;

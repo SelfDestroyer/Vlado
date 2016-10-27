@@ -25,7 +25,11 @@ video_buffer_t video_buffer = {
     1
 };
 
-gd_t gd = { 0x00, 0x0000};
+gd_t gd = {
+    0x00, 0x0000, 
+    { {0x0000, &PWM3DCH}, {0x0000, &PWM4DCH}}
+};
+
 
 
 
