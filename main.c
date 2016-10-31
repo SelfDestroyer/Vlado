@@ -44,6 +44,10 @@ void main(void)
     /* Initialize I/O and Peripherals for application */
     InitApp();
     
+    *(gd.motors[0].speed) = 0;
+    *(gd.motors[1].speed) = 0;
+    
+    display.clear();
     while(1)
     {
         switch(gd.buttons.buttons) {
@@ -59,7 +63,9 @@ void main(void)
                 gd.position = 0x00;
                 break;
         }
-        display.integer(gd.position);
+//        display.integer(gd.position);
+        *(gd.motors[0].speed) += 1;
+        *(gd.motors[1].speed) += 1;
         __delay_ms(50);
     }
 

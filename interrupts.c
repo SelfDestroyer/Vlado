@@ -86,11 +86,21 @@ static inline void __IOC_isr(void)
         IOCAFbits.IOCAF5 = 0;
     }
     
+    /* Motor1 count */
     if(IOCAFbits.IOCAF0) {
+        if(PORTAbits.RA0 == 0)
+            *(gd.motors[0].speed) = 32;
+        else
+            *(gd.motors[0].speed) = 0;
         IOCAFbits.IOCAF0 = 0;
     }
     
+    /* Motor2 count */
     if(IOCAFbits.IOCAF1) {
+        if(PORTAbits.RA1 == 0)
+            *(gd.motors[1].speed) = 127;
+        else
+            *(gd.motors[1].speed) = 0;
         IOCAFbits.IOCAF1 = 0;
     }
     
